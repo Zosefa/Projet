@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Produit</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('produit') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('produit') }} 
+            {% block importmap %} {{ importmap('produit') }} {% endblock %} 
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            {% include 'partiel/flash.html.twig' %}
+        </div>
+        <div class="container">
+            <a href="{{ path('app_produit_insert') }}" class="btn btn-primary">NOUVEAU PRODUIT</a>
+        </div>
+        <div class="container">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <td>Produit</td>
+                        <td>Image</td>
+                        <td>Prix</td>
+                        <td>Categorie</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for liste in listeProduit %}
+                        <tr>
+                            <td>{{ liste.Materiel }}</td>
+                            <td>
+                                <img src="{{ vich_uploader_asset(liste, 'ImageFile') }}" class="img img-fluid" alt=""></img>                          
+                            </td>
+                            <td>{{ liste.Prix }}</td>
+                            <td>{{ liste.Categorie.categorie }}</td>
+                            <td>
+                                <a href="{{ path('app_produit_cryptage',{id:liste.id}) }}">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="{{ path('app_produit_delete',{id:liste.id}) }}">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="7">Aucun Donner Trouver</td>
+                        </tr>
+                    {% endfor %}        
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

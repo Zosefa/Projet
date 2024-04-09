@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('admin') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('admin') }} 
+            {% block importmap %} {{ importmap('admin') }} {% endblock %} 
+        {% endblock %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('wow/animate.css') }}">
+    </head>
+    <body>
+        <div class="conteneur">
+            <div class="dashboard">
+                <div class="user">
+                    <i class="fas fa-user"></i> <strong>{{ app.user.userIdentifier }}</strong>
+                </div>
+                <div class="menu">
+                    <a href="{{ path('admin_client') }}" class="{{ app.current_route == 'admin_client' ? 'active' : '' }}">Client</a>
+                    <a href="{{ path('admin_vendeur') }}" class="{{ app.current_route == 'admin_vendeur' ? 'active' : '' }}">Vendeur</a>
+                    <a href="{{ path('admin_produit') }}" class="{{ app.current_route == 'admin_produit' ? 'active' : '' }}">Materiel</a>
+                </div>
+                <div class="logout">
+                    <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            </div>
+            <div class="action">
+                <div class="container">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>            
+        </div>       
+        <script src="{{ asset('wow/wow.min.js') }}"></script>
+        <script src="{{ asset('Jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/admin.js') }}"></script>
+    </body>
+</html>

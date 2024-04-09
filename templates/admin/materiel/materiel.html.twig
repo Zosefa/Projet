@@ -1,0 +1,37 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Liste des Materiels{% endblock %}
+
+{% block body %}
+    <h4 style="text-align: center;margin: 20px 0px 20px 0px">Liste des Materiels</h4>
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>Produit</td>
+            <td>Description</td>
+            <td>Photo</td>
+            <td>Prix</td>
+            <td>Vendeur</td>
+            <td>Categorie</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for datas in data %}
+            <tr>
+                <td>{{ datas.materiel }}</td>
+                <td>{{ datas.description }}</td>
+                <td>
+                    <img src="{{ vich_uploader_asset(datas, 'ImageFile') }}">
+                </td>
+                <td>{{ datas.prix }}</td>
+                <td>{{ datas.vendeur.vendeur }}</td>
+                <td>{{ datas.categorie.categorie }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun Donner Trouver</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

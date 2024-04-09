@@ -1,0 +1,71 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+body{
+    width: 100% !important;
+    height: 100vh !important;
+    background-image: url('../bg/pexels-negative-space-34600.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column;
+}
+.user{
+    display:none;
+    width: 100%;
+    height: 80vh;
+    /* border: 1px solid wheat; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+    background: linear-gradient(70deg,rgba(0, 0, 255, 0.61) ,rgba(0, 255, 255, 0.719));
+}
+.client{
+    width: 100%;
+    height: 80vh;
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+    background: linear-gradient(50deg,rgba(0, 0, 255, 0.61) ,rgba(0, 255, 255, 0.719) );
+}
+.vendeur{
+    width: 100%;
+    height: 80vh;
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+    background: linear-gradient(50deg,rgba(0, 0, 255, 0.61),rgba(0, 255, 255, 0.719));
+}
+.btn{
+    border-radius: 0px !important;
+    width: 120px !important;
+    height: 50px !important;
+}
+.form-control{
+    border-radius: 0px !important;
+}
+.suivant{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.precedent-envoyer{
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+}
+.form-floating,.form-select{
+    width: 50% !important;
+}
+h1{
+    color: white !important;
+}
+

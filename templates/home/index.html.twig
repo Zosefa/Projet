@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('home') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('home') }}
+        {% block importmap %} {{ importmap('home') }} {% endblock %}
+    {% endblock %}
+    <title>E-VENTE</title>
+</head>
+<body>
+    <div class="text">
+        <h3>Bienvenue Sur <strong>E-VENTE <i class="fab fa-opencart"></i> </strong> notre site de Commerce Electronique</h3>
+        <div>
+            <strong>Souhaitez-Vous</strong>
+        </div>      
+    </div>
+    <div class="cont">
+        <a href="{{ path('admin.inscription.vendeur') }}">Mettre en Vente Vos Prouits?</a>
+        <a href="{{ path('admin.inscription.client') }}">Faire des Achats dans notre Site?</a>
+        <a href="{{ path('app_login') }}">Vous connectez a votre compte</a>
+    </div>
+</body>
+</html>

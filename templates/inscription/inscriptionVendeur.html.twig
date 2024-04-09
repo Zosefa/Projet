@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>INSCRIPTION</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        {% block importmap %} {{ importmap('app') }} {% endblock %}
+    {% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('wow/animate.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% include './partiel/flash.html.twig' %}
+    </div>
+    <div class="container">
+        <div>
+            <form method="POST">
+                <div class="user">
+                    <h1>VOTRE UTILISATEUR</h1>
+                    <div class="form-floating">
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Username" holder>
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                        <label for="email">email</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" name="password" id="pass" class="form-control" placeholder="Password">
+                        <label for="pass">Password</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" name="confirm" id="conf" class="form-control" placeholder="Confirm">
+                        <label for="conf">Confirm</label>
+                    </div>
+                </div>
+                <div class="vendeur">
+                    <h1>APROPOS DE VOUS</h1>
+                    <div class="form-floating">
+                        <input type="text" name="Nom" id="nom" class="form-control" placeholder="Nom">
+                        <label for="nom">Nom</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="number" name="Tel" id="tel" class="form-control" placeholder="Numero">
+                        <label for="tel">Tel</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" name="Siege" id="siege" class="form-control" placeholder="Siege">
+                        <label for="siege">Siege</label>
+                    </div>
+                </div>
+                <div>
+                    <div class="suivant">
+                        <div class="btn btn-primary btn-suivant" style="cursor:pointer">Next</div>
+                    </div>
+                    <div class="precedent-envoyer">
+                        <div class="btn btn-danger btn-precedent" style="cursor:pointer">Precedent</div>
+                        <input type="submit" value="Enregistrer" class="btn btn-success btn-envoyer" name="submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    <script src="{{ asset('wow/wow.min.js') }}"></script>
+    <script src="{{ asset('Jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+</body>
+</html>

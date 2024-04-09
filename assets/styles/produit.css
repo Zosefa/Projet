@@ -1,0 +1,18 @@
+.btn{
+    border-radius: 0px !important;
+}
+.form-control{
+    border-radius: 0px !important;
+}
+td {
+    text-align: center;
+}
+td a{
+    text-decoration: none;
+}
+td a .fa-edit{
+    color: blue !important;
+}
+td a .fa-trash{
+    color: red !important;
+}

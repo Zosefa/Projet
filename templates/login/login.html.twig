@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('login') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('login') }} 
+        {% block importmap %} {{ importmap('login') }} {% endblock %} 
+    {% endblock %}
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+                    <h4>CONNECTEZ-VOUZ</h4>
+                    <div class="inputbox">
+                        <i class="fas fa-user"></i>                        
+                        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+                        <label for="inputUsername">Username</label>
+                    </div>
+                    <div class="inputbox">
+                        <i class="far fa-eye"></i>
+                        <i class="far fa-eye-slash"></i>                       
+                        <input type="password" name="password" id="inputPassword" class="form-control pass" autocomplete="current-password" required>
+                        <label for="inputPassword">Password</label>
+                    </div>
+                    <input type="hidden" name="_csrf_token"
+                        value="{{ csrf_token('authenticate') }}"
+                    >
+                    <div class="forget">
+                        <label for="">
+                            <input type="checkbox" name="_remember_me">Remember Me
+                        </label>                        
+                    </div>
+                    <button type="submit">CONNEXION</button>
+                    <div class="register">
+                        <p>Vous n'avez pas de compte <a href="{{ path('home') }}">S'inscrire</a> </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="{{ asset('Jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/login.js') }}"></script>
+</body>
+</html>

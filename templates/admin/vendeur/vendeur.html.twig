@@ -1,0 +1,35 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Liste des Vendeurs{% endblock %}
+
+{% block body %}
+    <h4 style="text-align: center;margin: 20px 0px 20px 0px">Liste des Vendeurs</h4>
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>Vendeur</td>
+            <td>Tel</td>
+            <td>Siege</td>
+            <td>User</td>
+            <td>Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for datas in data %}
+            <tr>
+                <td>{{ datas.vendeur }}</td>
+                <td>{{ datas.telE }}</td>
+                <td>{{ datas.siege }}</td>
+                <td>{{ datas.user.username }}</td>
+                <td>
+                    <button class="btn btn-danger">Bloquer</button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun Donner Trouver</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

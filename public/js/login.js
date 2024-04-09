@@ -1,0 +1,12 @@
+$(document).ready(function(){
+    $('.fa-eye').click(function(){
+        $('.fa-eye').css({'display':'none'});
+        $('.fa-eye-slash').css({'display':'block'});
+        $('.pass').attr("type","text");
+    });
+    $('.fa-eye-slash').click(function(){
+        $('.fa-eye-slash').css({'display':'none'});
+        $('.fa-eye').css({'display':'block'});
+        $('.pass').attr("type","password");
+    });
+});

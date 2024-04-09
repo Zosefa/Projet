@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Produit</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('produit') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('produit') }} 
+            {% block importmap %} {{ importmap('produit') }} {% endblock %} 
+        {% endblock %}
+    </head>
+    <body> 
+        <div>
+            <img src="{{ vich_uploader_asset(materiel, 'ImageFile') }}" class="img-fluid" alt=""></img>
+        </div>
+        <div class="container">
+            {{ form_start(form) }} 
+                {{ form_row(form.Materiel) }}
+                {{ form_row(form.Description) }}
+                {{ form_row(form.ImageFile) }}
+                {{ form_row(form.Prix) }}
+                {{ form_row(form.Categorie) }}
+                <div>
+                    <input type="submit" value"Modifier" class="btn btn-primary">
+                <div>
+            {{ form_end(form) }}
+        </div>
+    </body>
+</html>
